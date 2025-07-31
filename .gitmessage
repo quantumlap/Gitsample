@@ -1,0 +1,17 @@
+# Tipo(scope): descrizione breve (max 50 caratteri)
+# |<----  Usando max 50 caratteri  ---->|
+
+# Corpo del commit (opzionale, max 72 caratteri per riga)
+# |<----   Prova a tenere entro 72 caratteri    ---->|
+
+# Footer (opzionale)
+# Esempio: "Fixes #123" o "BREAKING CHANGE: ..."
+
+# --- REMEMBER ---
+# feat: nuova funzionalità
+# fix: correzione bug
+# docs: documentazione
+# style: formattazione
+# refactor: refactoring codice
+# test: aggiunta test
+# chore: task manutenzione

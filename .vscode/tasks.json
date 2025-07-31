@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Git: Sync Development",
+      "type": "shell",
+      "command": "git",
+      "args": ["checkout", "development", "&&", "git", "pull"],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "Git: Create Feature Branch",
+      "type": "shell",
+      "command": "git",
+      "args": [
+        "checkout", "development", "&&",
+        "git", "pull", "&&",
+        "git", "checkout", "-b", "${input:featureBranchName}"
+      ],
+      "group": "build",
+      "presentation": {
+        "echo": true,
+        "reveal": "always"
+      }
+    },
+    {
+      "label": "Git: Push Current Branch",
+      "type": "shell",
+      "command": "git",
+      "args": ["push", "-u", "origin", "HEAD"],
+      "group": "build"
+    },
+    {
+      "label": "Git: Cleanup Merged Branches",
+      "type": "shell",
+      "command": "git",
+      "args": [
+        "branch", "--merged", "|",
+        "grep", "-v", "'\\*\\|main\\|development'", "|",
+        "xargs", "-n", "1", "git", "branch", "-d"
+      ],
+      "group": "build"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "featureBranchName",
+      "description": "Nome del branch feature (es: feature/JIRA-123-login)",
+      "default": "feature/",
+      "type": "promptString"
+    }
+  ]
+}
