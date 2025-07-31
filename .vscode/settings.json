@@ -1,0 +1,53 @@
+{
+  // === GIT CONFIGURATION ===
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "git.autofetch": true,
+  "git.autofetchPeriod": 180,
+  "git.pruneOnFetch": true,
+  "git.pullTags": true,
+  
+  // Git Graph Configuration
+  "git-graph.showCurrentBranchByDefault": true,
+  "git-graph.fetchAvatars": true,
+  "git-graph.dateFormat": "dd/mm/yyyy",
+  "git-graph.showUncommittedChanges": true,
+  
+  // GitLens Configuration  
+  "gitlens.defaultDateFormat": "DD/MM/YYYY HH:mm",
+  "gitlens.defaultDateShortFormat": "DD/MM/YY",
+  "gitlens.showWelcomeOnInstall": false,
+  "gitlens.showWhatsNewAfterUpgrades": false,
+  "gitlens.keymap": "chorded",
+  
+  // === EDITOR CONFIGURATION ===
+  "editor.rulers": [80, 120],
+  "editor.wordWrap": "wordWrapColumn",
+  "editor.wordWrapColumn": 80,
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.detectIndentation": false,
+  
+  // Auto-save
+  "files.autoSave": "onFocusChange",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  
+  // === FORMATTING ===
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  
+  // === TERMINAL ===
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.fontSize": 12,
+  
+  // === WORKSPACE ===
+  "explorer.confirmDelete": false,
+  "explorer.confirmDragAndDrop": false,
+  "workbench.editor.enablePreview": false,
+  "workbench.startupEditor": "readme"
+}

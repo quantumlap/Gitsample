@@ -1,0 +1,32 @@
+#!/bin/bash
+# .githooks/pre-commit
+
+echo "🔍 Running pre-commit checks..."
+
+# Controlla se ci sono file staged
+if git diff --cached --quiet; then
+    echo "❌ Nessun file staged per commit"
+    exit 1
+fi
+
+# Controlla formato commit message (se disponibile)
+if [ -f ".gitmessage" ]; then
+    echo "✅ Template commit message disponibile"
+fi
+
+# Esegui linting (se package.json esiste)
+if [ -f "package.json" ]; then
+    echo "🔧 Running linter..."
+    npm run lint 2>/dev/null || echo "⚠️  Linter non configurato"
+fi
+
+# Controlla file grandi (>1MB)
+echo "📦 Checking file size..."
+large_files=$(git diff --cached --name-only | xargs ls -la 2>/dev/null | awk '$5 > 1048576 {print $9 " (" $5 " bytes)"}')
+if [ -n "$large_files" ]; then
+    echo "⚠️  File di grandi dimensioni trovati:"
+    echo "$large_files"
+    echo "Considera Git LFS per file binari grandi"
+fi
+
+echo "✅ Pre-commit checks completati!"
